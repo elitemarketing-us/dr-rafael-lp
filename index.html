@@ -278,6 +278,22 @@ body[data-active="4"] .stage__scrim{
 .cta-note{ font-size:.8rem; color:var(--mist-dim); letter-spacing:.04em; display:inline-flex; align-items:center; gap:.5rem; }
 .cta-note::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--wa); box-shadow:0 0 8px var(--wa); }
 
+
+/* ============ AJUSTE HERO: textos auxiliares em branco ============ */
+#inicio .lede,
+#inicio .cta-note,
+#inicio .stat span,
+#inicio .microquote small{
+  color:rgba(244,248,251,.96) !important;
+}
+
+#inicio .lede,
+#inicio .cta-note,
+#inicio .stat span,
+#inicio .microquote small{
+  text-shadow:0 2px 18px rgba(0,0,0,.42);
+}
+
 /* ============ HERO ============ */
 .stats{ display:flex; flex-wrap:wrap; gap:1.4rem 2.4rem; margin-top:2.4rem; }
 .stat b{ display:block; font-family:var(--ff-display); font-weight:400; font-size:1.7rem; color:var(--surgical); line-height:1; }
