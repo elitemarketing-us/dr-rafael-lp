@@ -131,7 +131,7 @@ body[data-active="4"] .stage__scrim{
 /* ============ PROGRESSO + MARCA ============ */
 .progress{ position:fixed; top:0; left:0; right:0; z-index:40; height:3px; background:var(--line-soft); }
 .progress__bar{ height:100%; width:0%; background:linear-gradient(90deg, var(--gold), var(--gold-200)); box-shadow:0 0 14px rgba(199,168,106,.55); transition:width .12s linear; }
-.brand{ position:fixed; top:0; left:0; right:0; z-index:30; display:flex; align-items:center; justify-content:space-between; padding:1rem var(--pad); }
+.brand{ position:fixed; top:0; left:0; right:0; z-index:30; display:flex; align-items:center; justify-content:space-between; padding:1rem var(--pad); transition:opacity .45s var(--ease), transform .45s var(--ease), visibility .45s var(--ease); will-change:opacity,transform; }
 .brand__id{ display:flex; flex-direction:column; line-height:1.15; pointer-events:none; }
 .brand__name{ font-family:var(--ff-display); font-weight:500; font-size:1.05rem; letter-spacing:.02em; text-shadow:0 1px 18px rgba(0,0,0,.5); display:flex; align-items:center; gap:.55rem; }
 .brand__name::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px var(--gold); }
@@ -603,6 +603,7 @@ body[data-active="4"] .stage__scrim{
 .scrollcue__line::after{ content:""; position:absolute; left:0; top:-50%; width:100%; height:50%; background:linear-gradient(var(--gold), transparent); animation:cue 2s var(--ease) infinite; }
 @keyframes cue{ 0%{ top:-50%; } 60%,100%{ top:100%; } }
 body.scrolled .scrollcue{ opacity:0; pointer-events:none; }
+body.scrolled .brand{ opacity:0; transform:translateY(-110%); visibility:hidden; pointer-events:none; }
 .foot{ position:relative; z-index:5; padding:2.4rem var(--pad); background:var(--panel); border-top:1px solid var(--line-soft); display:flex; flex-wrap:wrap; gap:.7rem 1.4rem; justify-content:space-between; align-items:center; font-size:.76rem; color:var(--mist-dim); letter-spacing:.03em; }
 .foot strong{ font-family:var(--ff-display); font-weight:500; color:var(--mist); }
 
