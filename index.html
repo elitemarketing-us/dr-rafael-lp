@@ -364,6 +364,95 @@ body[data-active="4"] .stage__scrim{
 .sdot.on{ background:var(--gold); border-color:var(--gold); box-shadow:0 0 10px rgba(199,168,106,.5); }
 .cardstack__note{ flex:none; margin-top:.7rem; text-align:center; font-size:.72rem; color:var(--mist); text-shadow:0 1px 16px rgba(0,0,0,.7); }
 
+
+/* Mobile: troca os cards sem empilhar as faixas laterais.
+   Desktop permanece com o efeito original de agrupamento. */
+@media (max-width:760px){
+  .cardstack{
+    height:calc(100svh * 5.25);
+    --spine:0px;
+  }
+  .cardstack__pin{
+    padding:5.2rem var(--pad) 2.2rem;
+  }
+  .cardstack__head{
+    margin-bottom:1rem;
+  }
+  .cardstack__row{
+    display:block;
+    position:relative;
+    flex:1;
+    min-height:22rem;
+  }
+  .card{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    flex:none !important;
+    opacity:0;
+    pointer-events:none;
+    transform:translate3d(0,22px,0) scale(.965);
+    border-width:1px;
+    border-color:rgba(255,255,255,.12);
+    background:rgba(244,248,251,.06);
+    -webkit-backdrop-filter:blur(16px) saturate(1.12);
+    backdrop-filter:blur(16px) saturate(1.12);
+    transition:
+      opacity .62s var(--ease),
+      transform .72s var(--ease),
+      border-color .62s var(--ease),
+      background .62s var(--ease);
+  }
+  .card.is-spine{
+    opacity:0;
+    transform:translate3d(0,-22px,0) scale(.965);
+  }
+  .card.is-hidden{
+    opacity:0;
+    transform:translate3d(0,22px,0) scale(.965);
+    border-width:1px;
+  }
+  .card.is-active{
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+    pointer-events:auto;
+    z-index:2;
+    border-color:rgba(255,255,255,.30);
+    background:rgba(244,248,251,.08);
+  }
+  .card__bg,
+  .card__scrim,
+  .card__spine{
+    display:none;
+  }
+  .card__photo{
+    inset:0;
+    padding:clamp(.85rem,3.2vw,1.25rem);
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+  .card__photo img{
+    max-width:94%;
+    max-height:88%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+  }
+  .card__cap{
+    left:clamp(1.1rem,5vw,1.4rem);
+    bottom:clamp(.95rem,3.5vw,1.2rem);
+  }
+  .cardstack__foot{
+    margin-top:1rem;
+  }
+  .cardstack__note{
+    padding:0 .25rem;
+    line-height:1.45;
+  }
+}
+
 /* ============ TRANSFORMAÇÃO ============ */
 .benefits{ display:grid; grid-template-columns:1fr; gap:1.1rem 2rem; margin-top:2.2rem; }
 @media (min-width:760px){ .benefits{ grid-template-columns:repeat(2,1fr); } }
